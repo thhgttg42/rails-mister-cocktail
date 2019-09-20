@@ -1,0 +1,19 @@
+<h1>All the cocktails</h1>
+
+<div class="container">
+  <% @cocktails.each do |cocktail| %>
+      <div class="card-product mt-4">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+         <h2><%= cocktail.name.capitalize %></h2>
+         <%cocktail.doses.each do |dose| %>
+         <p><strong><%= dose.description %></strong> of
+         <%= dose.ingredient.name %></p>
+
+
+        <% end %>
+       </div>
+ <%= link_to 'see cocktail', cocktail_path(cocktail), class: 'btn btn-primary' %>
+      </div>
+ <% end %>
+</div>

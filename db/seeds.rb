@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts "destroying..."
+Ingredient.destroy_all
+Cocktail.destroy_all
+Dose.destroy_all
+
+#ingredients
+puts "seeding ingredients..."
 Ingredient.create(name: "lemon")
 Ingredient.create(name: "ice")
 Ingredient.create(name: "mint leaves")
@@ -18,4 +25,21 @@ Ingredient.create(name: "coffee")
 Ingredient.create(name: "vodka")
 Ingredient.create(name: "cream")
 Ingredient.create(name: "coffee liqueur")
-console.log(seeded)
+puts "#{Ingredient.count} ingredients created!"
+
+puts "creating cocktails..."
+10.times do |x|
+  Cocktail.create(name: "cocktail#{x}")
+end
+
+puts "done"
+
+#doses
+descriptions = ["10cl", "20cl", "30cl"]
+puts "seeding doses..."
+
+
+Dose.create(description: descriptions.sample, cocktail: Cocktail.first, ingredient: Ingredient.first)
+Dose.create(description: descriptions.sample, cocktail: Cocktail.last, ingredient: Ingredient.last)
+
+puts "done"
