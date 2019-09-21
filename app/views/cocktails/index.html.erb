@@ -3,7 +3,7 @@
 <div class="container">
   <% @cocktails.each do |cocktail| %>
       <div class="card-product mt-4">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" height="42" width="42"/>
         <div class="card-product-infos">
          <h2><%= cocktail.name.capitalize %></h2>
          <%cocktail.doses.each do |dose| %>
